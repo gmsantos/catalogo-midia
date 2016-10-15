@@ -14,7 +14,11 @@ public class Jogo extends Midia{
     }
 
     public void imprimeFicha(){
-        // TODO
+        System.out.println("Título: " + titulo);
+        System.out.println("Ano: " + anoCriacao);
+        System.out.println("Tipo: Jogo Eletrônico");
+        System.out.println("Gênero: " + genero);
+
     }
 
 }
