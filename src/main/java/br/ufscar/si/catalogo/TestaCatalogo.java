@@ -61,7 +61,7 @@ public class TestaCatalogo {
         jogo2 = new Jogo("Fifa 2008", 2008, "Esporte");
     }
 
-    private static void testaRecuperação(Catalogo catalogo) {
+    private static void testaRecuperacao(Catalogo catalogo) {
 
         assert (jogo2.equals(catalogo.obtemMidia("Fifa 2008")));
         assert (dvd2.equals(catalogo.obtemMidia("Matrix")));
@@ -77,9 +77,9 @@ public class TestaCatalogo {
 
         assert (catalogo.quantidadeDeMidias() == 6);
 
-        assert (catalogo.quantidadeDeMidias() == catalogo.quantidadeMáximaDeMidias());
+        assert (catalogo.quantidadeDeMidias() == catalogo.quantidadeMaximaDeMidias());
 
-        assert (ehIgual(catalogo.coleção(), new Midia[]{cd2, jogo2, dvd2,
+        assert (ehIgual(catalogo.colecao(), new Midia[]{cd2, jogo2, dvd2,
                     jogo1, dvd1, cd1}));
 
         // Verificando lista (seleciona pelo tipo - CD de música - implementada
@@ -87,21 +87,21 @@ public class TestaCatalogo {
 
         assert (catalogo.quantidadeDeCDs() == 2);
 
-        assert (ehIgual(catalogo.coleçãoPorTipo(1), new Midia[]{cd2, cd1}));
+        assert (ehIgual(catalogo.colecaoPorTipo(1), new Midia[]{cd2, cd1}));
 
         // Verificando lista (seleciona pelo tipo - DVD de filme - implementada
         // pela classe DVD)
 
         assert (catalogo.quantidadeDeDVDs() == 2);
 
-        assert (ehIgual(catalogo.coleçãoPorTipo(2), new Midia[]{dvd2, dvd1}));
+        assert (ehIgual(catalogo.colecaoPorTipo(2), new Midia[]{dvd2, dvd1}));
 
         // Verificando lista (seleciona pelo tipo - Jogo Eletrônico -
         // implementada pela classe Jogo)
 
         assert (catalogo.quantidadeDeJogos() == 2);
 
-        assert (ehIgual(catalogo.coleçãoPorTipo(3), new Midia[]{jogo1, jogo2}));
+        assert (ehIgual(catalogo.colecaoPorTipo(3), new Midia[]{jogo1, jogo2}));
     }
 
     private static void realizaTestes() {
@@ -112,7 +112,7 @@ public class TestaCatalogo {
          * Testa se o assert está habilitado. No Java o assert não é habilitado
          * por padrão.
          *
-         * Para executar inclua a opção -ea
+         * Para executar inclua a opcao -ea
          *
          * Exemplo: java -ea TestaCatalogo
          */
@@ -140,7 +140,7 @@ public class TestaCatalogo {
 
         // Tenta recuperar cadastros
 
-        testaRecuperação(catalogo);
+        testaRecuperacao(catalogo);
 
         System.out.println("Testes executados com sucesso !!");
     }
