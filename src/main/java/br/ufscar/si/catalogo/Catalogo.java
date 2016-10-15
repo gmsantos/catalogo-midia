@@ -81,6 +81,19 @@ public class Catalogo implements ColecaoMidia{
         return qtdeJogos;
     }
 
+    private int contarPorTipo(int tipo)
+    {
+        int qtde = 0;
+
+        for (Midia midia : midias){
+            if (midia != null && midia.getTipo() == tipo){
+                qtde++;
+            }
+        }
+
+        return qtde;
+    }
+
     public Midia[] colecao(){
         return midias;
     }
@@ -94,7 +107,9 @@ public class Catalogo implements ColecaoMidia{
     }
 
     public Midia[] colecaoPorTipo(int tipo){
-        Midia[] midiasFiltrado = new Midia[limiteCatalogo];
+        int arraySize = contarPorTipo(tipo);
+        
+        Midia[] midiasFiltrado = new Midia[arraySize];
         int midiasFiltradoPosicao = 0;
 
         for (Midia midia : midias){
