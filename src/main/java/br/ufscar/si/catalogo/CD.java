@@ -2,9 +2,9 @@ package br.ufscar.si.catalogo;
 
 public class CD extends Midia {
 
-    protected String artista;
+    private String artista;
 
-    protected String[][] faixas;
+    private String[][] faixas;
 
     private int posicaoFaixa;
 

@@ -2,11 +2,11 @@ package br.ufscar.si.catalogo;
 
 public class DVD extends Midia{
 
-    protected String diretor;
+    private String diretor;
 
     private int posicaoArtitas;
     
-    protected String[][] artistas;
+    private String[][] artistas;
 
     public DVD(String titulo, int anoCriacao, String diretor){
         super(titulo, anoCriacao);

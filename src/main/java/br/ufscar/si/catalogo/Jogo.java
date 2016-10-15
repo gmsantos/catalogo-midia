@@ -2,7 +2,7 @@ package br.ufscar.si.catalogo;
 
 public class Jogo extends Midia{
 
-    protected String genero;
+    private String genero;
 
     public Jogo(String titulo, int anoCriacao, String genero){
         super(titulo, anoCriacao);
