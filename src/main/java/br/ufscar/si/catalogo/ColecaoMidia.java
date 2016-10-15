@@ -1,7 +1,7 @@
 package br.ufscar.si.catalogo;
 
 public interface ColecaoMidia{
-    public Midia[] coleção();
+    public Midia[] colecao();
 
-    public Midia[] coleçãoProTipo(int tipo);
+    public Midia[] coleçaoProTipo(int tipo);
 }
