@@ -13,7 +13,7 @@ public class DVD extends Midia{
         this.diretor = diretor;
 
         posicaoArtitas = 0;
-        artistas = new String[4][1];
+        artistas = new String[5][2];
     }
 
     public void adicionaArtista(String artista, String papel){
@@ -28,8 +28,8 @@ public class DVD extends Midia{
     }
 
     public void imprimeFicha(){
-        System.out.println("Título: " + titulo);
-        System.out.println("Ano: " + anoCriacao);
+        System.out.println("Título: " + getTitulo());
+        System.out.println("Ano: " + getAnoCriacao());
         System.out.println("Tipo: Filme em DVD");
         System.out.println("Diretor: " + diretor);
 

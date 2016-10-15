@@ -18,7 +18,7 @@ public class TestaCatalogo {
 
     private static boolean ehIgual(Midia[] a, Midia[] b) {
         boolean ehIgual = a.length == b.length;
-
+        
         for (int i = 0; i < b.length && ehIgual; i++) {
             ehIgual = contains(a, b[i]);
         }
@@ -70,34 +70,30 @@ public class TestaCatalogo {
         assert (dvd1.equals(catalogo.obtemMidia("O Senhor dos Anéis - A Sociedade dos Anel")));
         assert (cd2.equals(catalogo.obtemMidia("Bachianas Brasileiras No.2")));
 
-        // Catalogo cheio
+        System.out.println("Catalogo cheio");
         assert (catalogo.adicionaMidia(jogo2) == false);
 
-        // Verificando lista (todos)
+        System.out.println("Verificando lista (todos)");
 
         assert (catalogo.quantidadeDeMidias() == 6);
 
         assert (catalogo.quantidadeDeMidias() == catalogo.quantidadeMaximaDeMidias());
 
-        assert (ehIgual(catalogo.colecao(), new Midia[]{cd2, jogo2, dvd2,
-                    jogo1, dvd1, cd1}));
+        assert (ehIgual(catalogo.colecao(), new Midia[]{cd2, jogo2, dvd2, jogo1, dvd1, cd1}));
 
-        // Verificando lista (seleciona pelo tipo - CD de música - implementada
-        // pela classe CD)
+        System.out.println("Verificando lista (seleciona pelo tipo - CD de música - implementada pela classe CD)");
 
         assert (catalogo.quantidadeDeCDs() == 2);
 
         assert (ehIgual(catalogo.colecaoPorTipo(1), new Midia[]{cd2, cd1}));
 
-        // Verificando lista (seleciona pelo tipo - DVD de filme - implementada
-        // pela classe DVD)
+        System.out.println("Verificando lista (seleciona pelo tipo - DVD de filme - implementada pela classe DVD)");
 
         assert (catalogo.quantidadeDeDVDs() == 2);
 
         assert (ehIgual(catalogo.colecaoPorTipo(2), new Midia[]{dvd2, dvd1}));
 
-        // Verificando lista (seleciona pelo tipo - Jogo Eletrônico -
-        // implementada pela classe Jogo)
+        System.out.println("Verificando lista (seleciona pelo tipo - Jogo Eletrônico - implementada pela classe Jogo)");
 
         assert (catalogo.quantidadeDeJogos() == 2);
 
@@ -124,12 +120,12 @@ public class TestaCatalogo {
             System.exit(-1);
         }
 
-        // Criar uma classe cadastro e tenta buscar uma midia na lista vazia
+        System.out.println("Criar uma classe cadastro e tenta buscar uma midia na lista vazia");
         Catalogo catalogo = new Catalogo(6);
 
         assert (catalogo.obtemMidia("Senhor dos Aneis") == null);
 
-        // adiciona 6 midias
+        System.out.println("adiciona 6 midias");
 
         assert (catalogo.adicionaMidia(cd1));
         assert (catalogo.adicionaMidia(dvd1));
@@ -137,8 +133,8 @@ public class TestaCatalogo {
         assert (catalogo.adicionaMidia(cd2));
         assert (catalogo.adicionaMidia(dvd2));
         assert (catalogo.adicionaMidia(jogo2));
-
-        // Tenta recuperar cadastros
+        
+        System.out.println("Tenta recuperar cadastros");
 
         testaRecuperacao(catalogo);
 
@@ -149,7 +145,7 @@ public class TestaCatalogo {
         try {
             realizaTestes();
         } catch (AssertionError e) {
-            System.out.println("Erros durante os testes !!");
+            System.out.println("Deu ruim");
         }
     }
 }

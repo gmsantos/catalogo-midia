@@ -12,12 +12,12 @@ public class CD extends Midia {
         super(titulo, anoCriacao);
         this.artista = artista;
 
-        faixas = new String[30][2];
+        faixas = new String[15][2];
         posicaoFaixa = 0;
     }
 
     public void adicionaFaixa(String faixa, int duracao){
-        faixas[posicaoFaixa][0] = artista;
+        faixas[posicaoFaixa][0] = faixa;
         faixas[posicaoFaixa][1] = String.format("%s:%s", duracao / 60, duracao % 60);
         
         posicaoFaixa++;
@@ -28,15 +28,15 @@ public class CD extends Midia {
     }
 
     public void imprimeFicha(){
-        System.out.println("Título: " + titulo);
-        System.out.println("Ano: " + anoCriacao);
+        System.out.println("Título: " + getTitulo());
+        System.out.println("Ano: " + getAnoCriacao());
         System.out.println("Tipo: CD de música");
         System.out.println("Artista: " + artista);
 
         int faixasOutput = 0;
 
         for (String[] faixa : faixas){
-            if (faixa[0].length() > 0) {
+            if (faixa[0] != null) {
                 System.out.printf(
                     "Faixa %s: %s, duração: %s\n", 
                     ++faixasOutput,

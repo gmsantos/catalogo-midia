@@ -2,55 +2,116 @@ package br.ufscar.si.catalogo;
 
 public class Catalogo implements ColecaoMidia{
 
-    public Midia[] midias;
+    private Midia[] midias;
+
+    private int midiaPosicao;
+
+    private int limiteCatalogo;
 
     public Catalogo(int tamMax){
-        this.midias = new Midia[tamMax];
+        limiteCatalogo = tamMax > 300 ? 300 : tamMax;
+        midias = new Midia[limiteCatalogo];
+        
+        midiaPosicao = 0;
     }
 
     public boolean adicionaMidia(Midia midia){
+
+        if (limiteCatalogo <= midiaPosicao){
+            return false;
+        }
+
+        midias[midiaPosicao] = midia;
+        midiaPosicao++;
+
         return true;
     }
 
     public Midia obtemMidia(String titulo){
-        return new DVD("Batata", 2016, "Terror");
+        for (Midia midia : midias){
+            if (midia != null && midia.getTitulo().equals(titulo)){
+                return midia;
+            }
+        }
+        
+        return null;
     }
 
     public int quantidadeMaximaDeMidias(){
-        return 1;
+        return limiteCatalogo;
     }
 
     public int quantidadeDeMidias(){
-        return 1;
+        return midiaPosicao;
     }
 
     public int quantidadeDeCDs(){
-        return 1;
+        int qtdeCDs = 0;
+
+        for (Midia midia : midias){
+            if (midia instanceof CD){
+                qtdeCDs++;
+            }
+        }
+
+        return qtdeCDs;
     }
 
     public int quantidadeDeDVDs(){
-        return 2;
+        int qtdeDVDs = 0;
+
+        for (Midia midia : midias){
+            if (midia instanceof DVD){
+                qtdeDVDs++;
+            }
+        }
+
+        return qtdeDVDs;
     }
 
     public int quantidadeDeJogos(){
-        return 3;
+        int qtdeJogos = 0;
+
+        for (Midia midia : midias){
+            if (midia instanceof Jogo){
+                qtdeJogos++;
+            }
+        }
+
+        return qtdeJogos;
     }
 
     public Midia[] colecao(){
-        return this.midias;
+        return midias;
     }
 
     public void imprimeColecao(){
-        Midia[] midias = this.colecao();
-        System.out.println();
+        Midia[] midias = colecao();
+
+        for (Midia midia : midias){
+            midia.imprimeFicha();
+        }
     }
 
     public Midia[] colecaoPorTipo(int tipo){
-        return this.midias;
+        Midia[] midiasFiltrado = new Midia[limiteCatalogo];
+        int midiasFiltradoPosicao = 0;
+
+        for (Midia midia : midias){
+            if (midia != null && midia.getTipo() == tipo){
+                midiasFiltrado[midiasFiltradoPosicao] = midia;
+                midiasFiltradoPosicao++;
+            }
+        }
+        
+        return midiasFiltrado;
     }
 
     public void imprimePorTipoColecao(int tipo){
         Midia[] midias = this.colecaoPorTipo(tipo);
-        System.out.println();
+
+        for (Midia midia : midias){
+            midia.imprimeFicha();
+        }
     }
 }
