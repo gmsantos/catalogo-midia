@@ -81,6 +81,9 @@ public class Catalogo implements ColecaoMidia{
         return qtdeJogos;
     }
 
+    // Metodo criado somente para satisfazer a condição do caso de testes
+    // É preciso definir o array com o mesmo lenght do array testado
+    // Para essa classe, usar um ArrayList seria bem mais adequado
     private int contarPorTipo(int tipo)
     {
         int qtde = 0;
@@ -108,7 +111,7 @@ public class Catalogo implements ColecaoMidia{
 
     public Midia[] colecaoPorTipo(int tipo){
         int arraySize = contarPorTipo(tipo);
-        
+
         Midia[] midiasFiltrado = new Midia[arraySize];
         int midiasFiltradoPosicao = 0;
 
