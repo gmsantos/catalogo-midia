@@ -9,7 +9,7 @@ public class DVD extends Midia{
         this.diretor = diretor;
     }
 
-    public void adicionaArtista(String artista, int papel){
+    public void adicionaArtista(String artista, String papel){
         // TODO
     }
 
